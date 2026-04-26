@@ -59,3 +59,55 @@ GROUP BY department;
 SELECT *
 FROM employees
 WHERE join_date >= DATEADD(DAY, -30, GETDATE());
+
+/* ==========================================================
+   QUESTION 6
+   Find total number of employees in each department
+========================================================== */
+
+SELECT department, COUNT(*) AS total_employees
+FROM employees
+GROUP BY department;
+
+
+/* ==========================================================
+   QUESTION 7
+   Find employees whose names start with 'A'
+========================================================== */
+
+SELECT *
+FROM employees
+WHERE name LIKE 'A%';
+
+
+/* ==========================================================
+   QUESTION 8
+   Find the top 3 highest salaries
+========================================================== */
+
+SELECT TOP 3 *
+FROM employees
+ORDER BY salary DESC;
+
+
+/* ==========================================================
+   QUESTION 9
+   Find departments having more than 5 employees
+========================================================== */
+
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+
+/* ==========================================================
+   QUESTION 10
+   Rank employees based on salary
+========================================================== */
+
+SELECT 
+    name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) AS salary_rank
+FROM employees;
