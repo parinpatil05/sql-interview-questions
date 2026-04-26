@@ -30,4 +30,14 @@ FROM employees
 GROUP BY name
 HAVING COUNT(*) > 1;
 
+/* ==========================================================
+   QUESTION 3
+   Find employees earning more than the average salary
+========================================================== */
 
+SELECT name, salary
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+);
