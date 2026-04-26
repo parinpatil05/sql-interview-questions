@@ -50,3 +50,12 @@ WHERE salary > (
 SELECT department, MAX(salary) AS highest_salary
 FROM employees
 GROUP BY department;
+
+/* ==========================================================
+   QUESTION 5
+   Find employees who joined in the last 30 days
+========================================================== */
+
+SELECT *
+FROM employees
+WHERE join_date >= DATEADD(DAY, -30, GETDATE());
