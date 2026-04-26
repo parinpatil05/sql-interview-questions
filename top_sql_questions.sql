@@ -41,3 +41,12 @@ WHERE salary > (
     SELECT AVG(salary)
     FROM employees
 );
+
+/* ==========================================================
+   QUESTION 4
+   Find the highest salary in each department
+========================================================== */
+
+SELECT department, MAX(salary) AS highest_salary
+FROM employees
+GROUP BY department;
