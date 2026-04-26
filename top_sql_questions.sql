@@ -19,3 +19,15 @@ WHERE salary < (
     SELECT MAX(salary)
     FROM employees
 );
+
+/* ==========================================================
+   QUESTION 2
+   Find duplicate records in a table
+========================================================== */
+
+SELECT name, COUNT(*) AS duplicate_count
+FROM employees
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+
